@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Util</string>
+    <string name="test_toast_short">test toast short</string>
+    <string name="test_toast_long">test toast long</string>
+</resources>
