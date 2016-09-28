@@ -1,7 +1,7 @@
 # Util_SharePreferences
  
- ![](./app/src/main/res/mipmap-xhdpi/ic_sp1.png "")
- ![](./app/src/main/res/mipmap-xhdpi/ic_sp2.png "")  
+ ![](.././app/src/main/res/mipmap-xhdpi/ic_sp1.png "")
+ ![](.././app/src/main/res/mipmap-xhdpi/ic_sp2.png "")  
 ## gradle:
 ```xml
 dependencies {
