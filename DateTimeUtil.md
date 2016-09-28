@@ -1,25 +1,14 @@
 # Util_Date&Time
  
  ![](./app/src/main/res/mipmap-xhdpi/ic_date.png "")
- ![](./app/src/main/res/mipmap-xhdpi/ic_time.png "") 
-## apk
-[Util-1.0.1-sample.apk](https://github.com/Sing1/Util/blob/master/app.apk)
+ ![](./app/src/main/res/mipmap-xhdpi/ic_time.png "")  
 ## gradle:
-```groovy
+```xml
 dependencies {
     ...
-    compile 'sing.util:library:1.0.2'
+    compile 'sing.util:library:1.0.3'
 }
-```
-## Maven:
-```xml
-<dependency>
-  <groupId>sing.util</groupId>
-  <artifactId>library</artifactId>
-  <version>1.0.2</version>
-  <type>pom</type>
-</dependency>
-```
+``` 
 ## sample 
 ```JAVA    
 /**
