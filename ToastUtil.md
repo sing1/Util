@@ -9,9 +9,18 @@ dependencies {
     compile 'sing.util:library:1.0.3'
 }
 ```  
-##You must do it in your Application, otherwise it will crash!
+##Fist
+You must do it in your Application, otherwise it will crash!
 ```Java
-ToastUtil.init(this);
+public class MyApplication extends Application {
+
+　　@Override
+　　public void onCreate() {
+　　　　super.onCreate();
+    
+　　　　ToastUtil.init(this);//Fist
+　　}
+}
 ```
 ## sample 
 ```JAVA
