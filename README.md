@@ -2,7 +2,7 @@
  
 
 ## apk
-[Util-1.0.1-sample.apk](https://github.com/Sing1/Util/blob/master/app/app.apk)
+[Util-1.0.3-sample.apk](https://github.com/Sing1/Util/blob/master/app/app-debug.apk)
 ## gradle:
 ```groovy
 dependencies {
