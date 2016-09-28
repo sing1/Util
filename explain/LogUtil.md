@@ -1,7 +1,7 @@
 # Util_Log
  
- ![](./app/src/main/res/mipmap-xhdpi/ic_log1.png "")
- ![](./app/src/main/res/mipmap-xhdpi/ic_log2.png "")  
+ ![](.././app/src/main/res/mipmap-xhdpi/ic_log1.png "")
+ ![](.././app/src/main/res/mipmap-xhdpi/ic_log2.png "")  
 ## gradle:
 ```xml
 dependencies {
