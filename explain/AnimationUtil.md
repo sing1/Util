@@ -1,6 +1,6 @@
 # Util_Animation
  
- ![](./app/src/main/res/mipmap-xhdpi/ic_animation.gif "") 
+ ![](.././app/src/main/res/mipmap-xhdpi/ic_animation.gif "") 
 ## gradle:
 ```xml
 dependencies {
