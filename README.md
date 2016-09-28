@@ -13,10 +13,10 @@ dependencies {
 ## Maven:
 ```xml
 <dependency>
-  <groupId>sing.util</groupId>
-  <artifactId>library</artifactId>
-  <version>1.0.3</version>
-  <type>pom</type>
+　　<groupId>sing.util</groupId>
+　　<artifactId>library</artifactId>
+　　<version>1.0.3</version>
+　　<type>pom</type>
 </dependency>
 ```
 ## Details:
