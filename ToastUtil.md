@@ -9,7 +9,7 @@ dependencies {
     compile 'sing.util:library:1.0.3'
 }
 ```  
-##Fist
+##First
 You must do it in your Application, otherwise it will crash!
 ```Java
 public class MyApplication extends Application {
@@ -18,7 +18,7 @@ public class MyApplication extends Application {
 　　public void onCreate() {
 　　　　super.onCreate();
     
-　　　　ToastUtil.init(this);//Fist
+　　　　ToastUtil.init(this);//First
 　　}
 }
 ```
