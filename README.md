@@ -19,7 +19,8 @@ dependencies {
   <type>pom</type>
 </dependency>
 ```
-
+## Details:
+>- ads
 >- ads
 >- ads
 >- ads
