@@ -20,9 +20,9 @@ dependencies {
 </dependency>
 ```
 ## Details:
->- [DateTimeUtil](https://github.com/Sing1/Util/blob/master/DateTimeUtil.md)
->- [ToastUtil](https://github.com/Sing1/Util/blob/master/ToastUtil.md)
->- [LogUtil](https://github.com/Sing1/Util/blob/master/LogUtil.md)
->- [SharePreferencesUtil](https://github.com/Sing1/Util/blob/master/SharePreferencesUtil.md)
->- [AnimationUtil](https://github.com/Sing1/Util/blob/master/AnimationUtil.md)
+>- [DateTimeUtil](https://github.com/Sing1/Util/blob/master/explain/DateTimeUtil.md)
+>- [ToastUtil](https://github.com/Sing1/Util/blob/master/explain/ToastUtil.md)
+>- [LogUtil](https://github.com/Sing1/Util/blob/master/explain/LogUtil.md)
+>- [SharePreferencesUtil](https://github.com/Sing1/Util/blob/master/explain/SharePreferencesUtil.md)
+>- [AnimationUtil](https://github.com/Sing1/Util/blob/master/explain/AnimationUtil.md)
   
