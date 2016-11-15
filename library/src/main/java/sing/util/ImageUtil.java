@@ -25,10 +25,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * @author: LiangYX
- * @ClassName: ImageUtil
- * @date: 2016/11/11 下午4:30
- * @Description: 图片相关
+ * 图片相关
  */
 public class ImageUtil {
 
@@ -170,8 +167,6 @@ public class ImageUtil {
      * 图片的缩放方法
      *
      * @param bgimage   ：源图片资源
-     * @param newWidth  ：缩放后宽度
-     * @param newHeight ：缩放后高度
      * @return
      */
     public static Bitmap zoomImage(Bitmap bgimage) {

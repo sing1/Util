@@ -27,10 +27,7 @@ import sing.util.bean.AppProcessInfo;
 import sing.util.bean.ProcessInfo;
 
 /**
- * @author: LiangYX
- * @ClassName: AppUtil
- * @date: 2016/11/11 下午4:34
- * @Description: APK相关
+ * APK相关
  */
 public class AppUtil {
 

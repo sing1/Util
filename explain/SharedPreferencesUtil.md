@@ -27,9 +27,9 @@ SharedPreferencesUtil.clear() // return true:移除成功
 ```
 ######查询某个key是否已经存在
 ```JAVA
-public static boolean contains(String key) {
+public static boolean contains(String key) 
 ```
 ######返回所有的键值对
 ```JAVA
-public static Map<String, ?> getAll() {
+public static Map<String, ?> getAll() 
 ```

@@ -6,10 +6,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 /**
- * @author: LiangYX
- * @ClassName: DateUtil
- * @date: 2016/11/11 下午4:30
- * @Description: 日期相关、转化等
+ * 日期相关、转化等
  */
 public class DateUtil {
 
@@ -256,7 +253,6 @@ public class DateUtil {
      *
      * @param date
      * @return
-     * @throws Exception
      */
     public static String dayForWeek(String date,int type) {
         Date dates = null;

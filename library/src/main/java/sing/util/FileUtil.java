@@ -10,10 +10,7 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 
 /**
- * @author: LiangYX
- * @ClassName: FileUtils
- * @date: 2016/11/14 下午1:46
- * @Description: 文件工具类
+ * 文件工具类
  */
 public class FileUtil {
 

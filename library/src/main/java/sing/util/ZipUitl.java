@@ -19,10 +19,7 @@ import java.util.zip.ZipFile;
 import java.util.zip.ZipOutputStream;
 
 /**
- * @author: LiangYX
- * @ClassName: ZipUitls
- * @date: 2016/11/14 上午10:14
- * @Description: 文件压缩、解压工具类。文件压缩格式为zip
+ * 文件压缩、解压工具类。文件压缩格式为zip
  */
 public class ZipUitl {
 

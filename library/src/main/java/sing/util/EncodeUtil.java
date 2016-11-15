@@ -1,10 +1,7 @@
 package sing.util;
 
 /**
- * @author: LiangYX
- * @ClassName: EncodeUtil
- * @date: 2016/11/11 下午4:30
- * @Description: 加密相关
+ *  加密相关
  *          Android数据加密之Rsa加密
  *          Android数据加密之Aes加密
  *          Android数据加密之Des加密

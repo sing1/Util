@@ -3,10 +3,7 @@ package sing.util.bean;
 import android.graphics.drawable.Drawable;
 
 /**
- * @author: LiangYX
- * @ClassName: AppProcessInfo
- * @date: 2016/11/14 下午2:45
- * @Description: 应用程序的进程信息）
+ * 应用程序的进程信息
  */
 public class AppProcessInfo implements Comparable<AppProcessInfo> {
 

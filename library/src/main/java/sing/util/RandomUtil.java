@@ -3,10 +3,7 @@ package sing.util;
 import java.util.Random;
 
 /**
- * @author: LiangYX
- * @ClassName: RandomUtils
- * @date: 2016/11/14 上午11:21
- * @Description: 随机数工具类
+ * 随机数工具类
  */
 public class RandomUtil {
 

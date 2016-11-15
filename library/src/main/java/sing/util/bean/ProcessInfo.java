@@ -1,10 +1,8 @@
 package sing.util.bean;
 
 /**
- * @author: LiangYX
- * @ClassName: ProcessInfo
- * @date: 2016/11/14 下午2:44
- * @Description: 设备的进程信息
+ * 2016/11/14 下午2:44
+ * 设备的进程信息
  */
 public class ProcessInfo {
 

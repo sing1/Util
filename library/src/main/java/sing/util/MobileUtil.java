@@ -26,10 +26,7 @@ import java.util.UUID;
 import static android.R.attr.name;
 
 /**
- * @author: LiangYX
- * @ClassName: MobileUtil
- * @date: 2016/11/11 下午3:28
- * @Description: 手机信息
+ * 手机信息
  */
 public class MobileUtil {
 

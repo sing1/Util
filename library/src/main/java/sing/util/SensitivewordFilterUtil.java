@@ -12,10 +12,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author: LiangYX
- * @ClassName: SensitivewordFilterUtil
- * @date: 2016/11/14 上午11:35
- * @Description: 敏感词过滤工具类
+ * 敏感词过滤工具类
  */
 public class SensitivewordFilterUtil{
 
@@ -136,10 +133,8 @@ public class SensitivewordFilterUtil{
 	}
 
 	/**
-	 * @author: LiangYX
-	 * @ClassName: SensitivewordFilterUtil
-	 * @date: 2016/11/14 下午1:27
-	 * @Description: 初始化敏感词库
+	 * 2016/11/14 下午1:27
+	 * 初始化敏感词库
 	 */
 	public class SensitiveWordInit {
 

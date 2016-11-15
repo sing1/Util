@@ -10,10 +10,7 @@ import android.view.View;
 import android.view.WindowManager;
 
 /**
- * @author: LiangYX
- * @ClassName: ScreenUtil
- * @date: 2016/11/14 下午2:19
- * @Description: 屏幕相关
+ * 屏幕相关
  */
 public class ScreenUtil {
 

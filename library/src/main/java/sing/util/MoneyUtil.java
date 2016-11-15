@@ -3,10 +3,7 @@ package sing.util;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 /**
- * @author: LiangYX
- * @ClassName: MoneyUtils
- * @date: 2016/11/14 上午11:24
- * @Description: 金钱处理工具类
+ * 金钱处理工具类
  */
 public class MoneyUtil {
 

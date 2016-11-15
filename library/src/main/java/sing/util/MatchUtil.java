@@ -8,10 +8,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * @author: LiangYX
- * @ClassName: MatchUtil
- * @date: 2016/11/11 下午4:38
- * @Description: 正则表达式的判断
+ * 正则表达式的判断
  */
 public class MatchUtil {
 

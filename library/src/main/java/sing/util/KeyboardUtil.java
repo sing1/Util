@@ -7,10 +7,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 /**
- * @author: LiangYX
- * @ClassName: KeyboardUtil
- * @date: 2016/11/11 下午4:37
- * @Description: 键盘相关
+ * 键盘相关
  */
 public class KeyboardUtil {
 
