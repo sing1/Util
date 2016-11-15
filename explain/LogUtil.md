@@ -1,37 +1,33 @@
-# Util_Log
- 
- ![](.././app/src/main/res/mipmap-xhdpi/ic_log1.png "")
- ![](.././app/src/main/res/mipmap-xhdpi/ic_log2.png "")  
-## gradle:
-```xml
-dependencies {
-    ...
-    compile 'sing.util:library:1.0.3'
-}
-```  
-##First
-You should do this in your Application, otherwise he will be invalid.
-```Java
-public class MyApplication extends Application {
-
-　　@Override
-　　public void onCreate() {
-　　　　super.onCreate();
-    
-　　　　LogUtil.init(true,"LogUtils");//isDebug?,your tag
-　　}
-}
+#LogUtil
+ ![](../app/src/main/res/mipmap-xhdpi/ic_log1.png "")
+ ![](../app/src/main/res/mipmap-xhdpi/ic_log2.png "")  
+##API
+######初始化，在Application中调用，否则不会打印
+```JAVA
+LogUtil.init(boolean,String)//是否开启打印，默认TAG
 ```
-## sample 
-```JAVA 
-LogUtil.i("log.i()");
-LogUtil.d("log.d()");
-LogUtil.v("log.v()");
-LogUtil.w("log.w()");
-LogUtil.e("log.e()");
-LogUtil.i("自定义TAG","log.i()");
-LogUtil.d("自定义TAG","log.d()");
-LogUtil.v("自定义TAG","log.v()");
-LogUtil.w("自定义TAG","log.w()");
-LogUtil.e("自定义TAG","log.e()"); 
+######Log.i();
+```JAVA
+LogUtil.i(String)//msg
+LogUtil.i(String,String)//tag,msg
+```
+######Log.d();
+```JAVA
+LogUtil.d(String)//msg
+LogUtil.d(String,String)//tag,msg
+```
+######Log.e();
+```JAVA
+LogUtil.e(String)//msg
+LogUtil.e(String,String)//tag,msg
+```
+######Log.v();
+```JAVA
+LogUtil.v(String)//msg
+LogUtil.v(String,String)//tag,msg
+```
+######Log.w();
+```JAVA
+LogUtil.w(String)//msg
+LogUtil.w(String,String)//tag,msg
 ```

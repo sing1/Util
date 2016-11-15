@@ -1,11 +1,11 @@
 package sing.util;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.Map;
-
-import android.content.Context;
-import android.content.SharedPreferences;
 
 public class SharedPreferencesUtil {
 
@@ -13,7 +13,9 @@ public class SharedPreferencesUtil {
     private static Context context;
 
     public static void init(Context context, String file_name){
-        SharedPreferencesUtil.FILE_NAME = file_name;
+        if (!StringUtil.isEmpty(file_name)){
+            SharedPreferencesUtil.FILE_NAME = file_name;
+        }
         SharedPreferencesUtil.context = context;
     }
 

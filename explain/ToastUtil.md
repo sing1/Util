@@ -1,42 +1,17 @@
-# Util_Toast
- 
- ![](.././app/src/main/res/mipmap-xhdpi/ic_toast1.png "")
- ![](.././app/src/main/res/mipmap-xhdpi/ic_toast2.png "")  
-## gradle:
-```xml
-dependencies {
-    ...
-    compile 'sing.util:library:1.0.3'
-}
-```  
-##First
-You must do it in your Application, otherwise it will crash!
-```Java
-public class MyApplication extends Application {
-
-　　@Override
-　　public void onCreate() {
-　　　　super.onCreate();
-    
-　　　　ToastUtil.init(this);//First
-　　}
-}
-```
-## sample 
+#ToastUtil
+##说明
+必须在使用前初始化，否则会奔溃，最好写在Application的onCreate中
 ```JAVA
-public void toastShortInt(View v){
-　　ToastUtil.showShort(R.string.test_toast_short);
-}
+ToastUtil.init(Context)
+```
+##API
+######分别为长弹、短弹
+```JAVA
+ToastUtil.showShort(String)  
 
-public void toastShortString(View v){
-　　ToastUtil.showShort("test toast short");
-}
+ToastUtil.showShort(int)  
 
-public void toastLongInt(View v){
-　　ToastUtil.showLong(R.string.test_toast_long);
-}
+ToastUtil.showLong(String)  
 
-public void toastLongString(View v){
-　　ToastUtil.showLong("test toast long");
-}
+ToastUtil.showLong(int)
 ```

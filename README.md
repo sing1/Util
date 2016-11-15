@@ -3,11 +3,12 @@
 
 ## apk
 [Util-1.0.3-sample.apk](https://github.com/Sing1/Util/blob/master/app/app-debug.apk)
+都是一些简单的工具类，没什么好写的demo，apk不再更新
 ## gradle:
 ```groovy
 dependencies {
     ...
-    compile 'sing.util:library:1.0.3'
+    compile 'sing.util:library:1.0.4'
 }
 ```
 ## Maven:
@@ -15,7 +16,7 @@ dependencies {
 <dependency>
 　　<groupId>sing.util</groupId>
 　　<artifactId>library</artifactId>
-　　<version>1.0.3</version>
+　　<version>1.0.4</version>
 　　<type>pom</type>
 </dependency>
 ```
@@ -26,9 +27,22 @@ dependencies {
 BUG地址：https://github.com/Sing1/Util/issues  
 工具类发送邮箱：15202653100@163.com
 ## Details:
->- [DateTimeUtil](https://github.com/Sing1/Util/blob/master/explain/DateTimeUtil.md)
->- [ToastUtil](https://github.com/Sing1/Util/blob/master/explain/ToastUtil.md)
->- [LogUtil](https://github.com/Sing1/Util/blob/master/explain/LogUtil.md)
->- [SharePreferencesUtil](https://github.com/Sing1/Util/blob/master/explain/SharePreferencesUtil.md)
 >- [AnimationUtil](https://github.com/Sing1/Util/blob/master/explain/AnimationUtil.md)
-  
+>- [AppUtil](https://github.com/Sing1/Util/blob/master/explain/AppUtil.md)
+>- [DateTimeUtil](https://github.com/Sing1/Util/blob/master/explain/DateTimeUtil.md)
+>- [DateUtil](https://github.com/Sing1/Util/blob/master/explain/DateUtil.md)
+>- [EncodeUtil](https://github.com/Sing1/Util/blob/master/explain/EncodeUtil.md)
+>- [FileUtil](https://github.com/Sing1/Util/blob/master/explain/FileUtil.md)
+>- [ImageUtil](https://github.com/Sing1/Util/blob/master/explain/ImageUtil.md)
+>- [KeyboardUtil](https://github.com/Sing1/Util/blob/master/explain/KeyboardUtil.md)
+>- [LogUtil](https://github.com/Sing1/Util/blob/master/explain/LogUtil.md)
+>- [MatchUtil](https://github.com/Sing1/Util/blob/master/explain/MatchUtil.md)
+>- [MobileUtil](https://github.com/Sing1/Util/blob/master/explain/MobileUtil.md)
+>- [MoneyUtils](https://github.com/Sing1/Util/blob/master/explain/MoneyUtils.md)
+>- [RandomUtil](https://github.com/Sing1/Util/blob/master/explain/RandomUtil.md)
+>- [ScreenUtil](https://github.com/Sing1/Util/blob/master/explain/ScreenUtil.md)
+>- [SensitivewordFilterUtil](https://github.com/Sing1/Util/blob/master/explain/SensitivewordFilterUtil.md)
+>- [SharedPreferencesUtil](https://github.com/Sing1/Util/blob/master/explain/SharedPreferencesUtil.md)
+>- [StringUtil](https://github.com/Sing1/Util/blob/master/explain/StringUtil.md)
+>- [ToastUtil](https://github.com/Sing1/Util/blob/master/explain/ToastUtil.md)
+>- [ZipUtil](https://github.com/Sing1/Util/blob/master/explain/ZipUtil.md)

@@ -1,8 +1,6 @@
 package sing.util;
 
 import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
 import android.widget.Toast;
 
 public class ToastUtil {
@@ -12,9 +10,7 @@ public class ToastUtil {
         ToastUtil.context = context;
     }
 
-    private static Handler handler = new Handler(Looper.getMainLooper());
     private static Toast toast = null;
-    private static Object synObj = new Object();
 
     /**
      * short Toast

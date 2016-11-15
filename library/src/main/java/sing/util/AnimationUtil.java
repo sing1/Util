@@ -10,10 +10,7 @@ import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 
 /**
- * @className   AnimationUtils
- * @time        2016/9/26 16:52
- * @author      LiangYx
- * @description 动画工具类
+ * 动画工具类
  */
 public final class AnimationUtil {
 
@@ -93,8 +90,8 @@ public final class AnimationUtil {
     /**
      * 获取一个缩小动画
      *
-     * @param duration
-     * @param animationListener
+     * @param duration 动画时长
+     * @param animationListener 动画监听
      */
     public static ScaleAnimation getLessenScaleAnimation(long duration, AnimationListener animationListener) {
         ScaleAnimation scaleAnimation = new ScaleAnimation(1.0f, 0.0f, 1.0f, 0.0f, ScaleAnimation.RELATIVE_TO_SELF, ScaleAnimation.RELATIVE_TO_SELF);
