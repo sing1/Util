@@ -8,7 +8,7 @@
 ```groovy
 dependencies {
     ...
-    compile 'sing.util:library:1.0.4'
+    compile 'sing.util:library:1.0.5'
 }
 ```
 ## Maven:
@@ -16,7 +16,7 @@ dependencies {
 <dependency>
 　　<groupId>sing.util</groupId>
 　　<artifactId>library</artifactId>
-　　<version>1.0.4</version>
+　　<version>1.0.5</version>
 　　<type>pom</type>
 </dependency>
 ```
