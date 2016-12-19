@@ -21,6 +21,7 @@
         <activity android:name=".demo.ActLogUtil" />
         <activity android:name=".demo.ActSharedPreferencesUtil" />
         <activity android:name=".demo.ActAnimationUtil"/>
+        <activity android:name=".demo.ActSelectUtil"/>
     </application>
 
 </manifest>

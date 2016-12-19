@@ -1,5 +1,6 @@
 package sing.util;
 
+import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +9,8 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
+import android.util.ArrayMap;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
@@ -17,6 +20,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -623,5 +628,41 @@ public class AppUtil {
             e.printStackTrace();
             return 1;
         }
+    }
+
+    /**
+     * 通过反射的方法获取最上层的Activity
+     */
+    public static Activity getTopActivity() {
+        Activity topActivity = null;
+        try {
+            Class activityThreadClass = Class.forName("android.app.ActivityThread");
+            Method getATMethod = activityThreadClass.getDeclaredMethod("currentActivityThread");
+            Field activitiesField = activityThreadClass.getDeclaredField("mActivities");
+            Object activityThread = getATMethod.invoke(null);
+            activitiesField.setAccessible(true);
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                ArrayMap activites = (ArrayMap) activitiesField.get(activityThread);
+                Object activityClientRecord = activites.valueAt(0);
+
+                Class activityClientRecordClass = Class.forName("android.app.ActivityThread$ActivityClientRecord");
+                Field activityField = activityClientRecordClass.getDeclaredField("activity");
+                activityField.setAccessible(true);
+                topActivity = (Activity) activityField.get(activityClientRecord);
+            }
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        }
+        return topActivity;
     }
 }

@@ -4,6 +4,10 @@ android {
     compileSdkVersion 23
     buildToolsVersion "24.0.1"
 
+    //去除图片名称不能有数字的检查
+    aaptOptions.cruncherEnabled = false
+    aaptOptions.useNewCruncher = false
+
     defaultConfig {
         applicationId "sing.utils"
         minSdkVersion 17
@@ -24,4 +28,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile project(':library')
+    compile 'com.android.support:recyclerview-v7:23.4.0'
 }

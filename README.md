@@ -46,3 +46,5 @@ BUG地址：https://github.com/Sing1/Util/issues
 >- [StringUtil](https://github.com/Sing1/Util/blob/master/explain/StringUtil.md)
 >- [ToastUtil](https://github.com/Sing1/Util/blob/master/explain/ToastUtil.md)
 >- [ZipUtil](https://github.com/Sing1/Util/blob/master/explain/ZipUtil.md)
+>- [PermissionUtil](https://github.com/Sing1/Util/blob/master/explain/PermissionUtil.md)
+>- [SelectorUtil](https://github.com/Sing1/Util/blob/master/explain/SelectorUtil.md)
