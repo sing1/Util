@@ -20,6 +20,8 @@ import sing.util.SelectorUtil;
 import sing.utils.demo.ActAnimationUtil;
 import sing.utils.demo.ActDateTimeUtil;
 import sing.utils.demo.ActLogUtil;
+import sing.utils.demo.ActRandomTextView;
+import sing.utils.demo.ActRoundProgressBar;
 import sing.utils.demo.ActSelectUtil;
 import sing.utils.demo.ActSharedPreferencesUtil;
 import sing.utils.demo.ActToastUtil;
@@ -57,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("SharedPreferencesUtil",ActSharedPreferencesUtil.class));
         list.add(new MainBean("AnimationUtil",ActAnimationUtil.class));
         list.add(new MainBean("SelectUtil",ActSelectUtil.class));
+        list.add(new MainBean("RandomTextView",ActRandomTextView.class));
+        list.add(new MainBean("RoundProgressBar",ActRoundProgressBar.class));
         return list;
     }
 
@@ -64,7 +68,6 @@ public class MainActivity extends AppCompatActivity {
 
         private List<MainBean> list;
         private OnItemClickListener listener;
-
         public MyAdapter(List<MainBean> list, OnItemClickListener listener) {
             this.list = list;
             this.listener = listener;

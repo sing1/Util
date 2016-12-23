@@ -95,7 +95,7 @@ public class PermissionUtil {
      * 检查多个权限的状态,不会进行权限的申请.(当应用第一次安装的时候,不会有rational的值,此时返回均是denied)
      *
      * @param permissions The name of the permission being checked.
-     * @return Map<String, List<PermissionInfo>> or {@code null}
+     * @return Map or null
      *         if context is not instanceof Activity or topActivity can not be find
      */
     public Map<String, List<PermissionInfo>> checkMultiPermissions(String... permissions) {

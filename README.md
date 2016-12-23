@@ -8,7 +8,7 @@
 ```groovy
 dependencies {
     ...
-    compile 'sing.util:library:1.0.5'
+    compile 'sing.util:library:1.0.6'
 }
 ```
 ## Maven:
@@ -16,7 +16,7 @@ dependencies {
 <dependency>
 　　<groupId>sing.util</groupId>
 　　<artifactId>library</artifactId>
-　　<version>1.0.5</version>
+　　<version>1.0.6</version>
 　　<type>pom</type>
 </dependency>
 ```
@@ -48,3 +48,5 @@ BUG地址：https://github.com/Sing1/Util/issues
 >- [ZipUtil](https://github.com/Sing1/Util/blob/master/explain/ZipUtil.md)
 >- [PermissionUtil](https://github.com/Sing1/Util/blob/master/explain/PermissionUtil.md)
 >- [SelectorUtil](https://github.com/Sing1/Util/blob/master/explain/SelectorUtil.md)
+>- [RandomTextView](https://github.com/Sing1/Util/blob/master/explain/RandomTextView.md)
+>- [RoundProgressBar](https://github.com/Sing1/Util/blob/master/explain/RoundProgressBar.md)

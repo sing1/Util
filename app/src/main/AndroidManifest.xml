@@ -22,6 +22,8 @@
         <activity android:name=".demo.ActSharedPreferencesUtil" />
         <activity android:name=".demo.ActAnimationUtil"/>
         <activity android:name=".demo.ActSelectUtil"/>
+        <activity android:name=".demo.ActRandomTextView"/>
+        <activity android:name=".demo.ActRoundProgressBar"/>
     </application>
 
 </manifest>

@@ -1,0 +1,66 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:android_custom="http://schemas.android.com/apk/res/sing.utils"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="默认的样式" />
+
+    <sing.widget.RoundProgressBar
+        android:id="@+id/roundProgressBar01"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android_custom:backgroundColor="#123123" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="无数字，环形" />
+
+    <sing.widget.RoundProgressBar
+        android:id="@+id/roundProgressBar02"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android_custom:backgroundColor="#C2C2C2"
+        android_custom:roundColor="#C6E2FF"
+        android_custom:roundProgressColor="#CD3333"
+        android_custom:roundWidth="10dip"
+        android_custom:textIsDisplayable="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="有数字，环形" />
+
+    <sing.widget.RoundProgressBar
+        android:id="@+id/roundProgressBar03"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android_custom:backgroundColor="#FFFFFF"
+        android_custom:roundColor="#D1D1D1"
+        android_custom:roundProgressColor="@android:color/black"
+        android_custom:roundWidth="10dp"
+        android_custom:textColor="#000000"
+        android_custom:textSize="18sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="无数字，饼状" />
+
+    <sing.widget.RoundProgressBar
+        android:id="@+id/roundProgressBar04"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android_custom:roundProgressColor="#C2C2C2"
+        android_custom:roundWidth="1dp"
+        android_custom:style="FILL" />
+</LinearLayout>
