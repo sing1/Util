@@ -2,13 +2,13 @@ package sing.utils.demo;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
+import sing.utils.BaseActivity;
 import sing.utils.R;
 import sing.widget.RandomTextView;
 
-public class ActRandomTextView extends AppCompatActivity {
+public class ActRandomTextView extends BaseActivity {
 
     private RandomTextView randomTextView;
     private int[] pianyiliang = new int[6];

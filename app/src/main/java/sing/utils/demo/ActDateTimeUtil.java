@@ -1,11 +1,11 @@
 package sing.utils.demo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
 import sing.util.DateTimeUtil;
+import sing.utils.BaseActivity;
 import sing.utils.R;
 
 /**
@@ -14,7 +14,7 @@ import sing.utils.R;
  * @author      LiangYx
  * @description 日期时间选择工具类demo
  */
-public class ActDateTimeUtil extends AppCompatActivity {
+public class ActDateTimeUtil extends BaseActivity {
 
     private TextView textView = null;
 

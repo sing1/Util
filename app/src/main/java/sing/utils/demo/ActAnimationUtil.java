@@ -1,7 +1,6 @@
 package sing.utils.demo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
@@ -9,9 +8,10 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.ScaleAnimation;
 
 import sing.util.AnimationUtil;
+import sing.utils.BaseActivity;
 import sing.utils.R;
 
-public class ActAnimationUtil extends AppCompatActivity {
+public class ActAnimationUtil extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

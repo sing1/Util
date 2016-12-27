@@ -1,12 +1,10 @@
 package sing.utils.demo;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import sing.util.LogUtil;
-import sing.util.ToastUtil;
+import sing.utils.BaseActivity;
 import sing.utils.R;
 
 /**
@@ -15,7 +13,7 @@ import sing.utils.R;
  * @author      LiangYx
  * @description LogUtils demo
  */
-public class ActLogUtil extends AppCompatActivity {
+public class ActLogUtil extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

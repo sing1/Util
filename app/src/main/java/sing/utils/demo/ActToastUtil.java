@@ -1,10 +1,10 @@
 package sing.utils.demo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import sing.util.ToastUtil;
+import sing.utils.BaseActivity;
 import sing.utils.R;
 
 /**
@@ -13,7 +13,7 @@ import sing.utils.R;
  * @author      LiangYx
  * @description ToastUtil demo
  */
-public class ActToastUtil extends AppCompatActivity {
+public class ActToastUtil extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

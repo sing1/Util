@@ -21,9 +21,11 @@ import sing.utils.demo.ActAnimationUtil;
 import sing.utils.demo.ActDateTimeUtil;
 import sing.utils.demo.ActLogUtil;
 import sing.utils.demo.ActRandomTextView;
+import sing.utils.demo.ActRoundImageView;
 import sing.utils.demo.ActRoundProgressBar;
 import sing.utils.demo.ActSelectUtil;
 import sing.utils.demo.ActSharedPreferencesUtil;
+import sing.utils.demo.ActSwipeBackLayout;
 import sing.utils.demo.ActToastUtil;
 
 public class MainActivity extends AppCompatActivity {
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void click(Class functionClass) {
                 startActivity(new Intent(context,functionClass));
+                overridePendingTransition(R.anim.anim_enter, R.anim.anim_exit);
             }
         });
 
@@ -61,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("SelectUtil",ActSelectUtil.class));
         list.add(new MainBean("RandomTextView",ActRandomTextView.class));
         list.add(new MainBean("RoundProgressBar",ActRoundProgressBar.class));
+        list.add(new MainBean("SwipeBackLayout",ActSwipeBackLayout.class));
+        list.add(new MainBean("RoundImageView",ActRoundImageView.class));
         return list;
     }
 

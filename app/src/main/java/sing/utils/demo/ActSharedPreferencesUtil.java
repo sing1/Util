@@ -1,16 +1,14 @@
 package sing.utils.demo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.TextView;
 
-import sing.util.DateTimeUtil;
 import sing.util.SharedPreferencesUtil;
 import sing.util.ToastUtil;
+import sing.utils.BaseActivity;
 import sing.utils.R;
 
-public class ActSharedPreferencesUtil extends AppCompatActivity {
+public class ActSharedPreferencesUtil extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

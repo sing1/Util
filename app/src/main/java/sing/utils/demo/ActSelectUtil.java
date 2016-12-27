@@ -4,12 +4,12 @@ import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 
 import sing.util.SelectorUtil;
+import sing.utils.BaseActivity;
 import sing.utils.R;
 
-public class ActSelectUtil extends AppCompatActivity {
+public class ActSelectUtil extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

@@ -1,12 +1,12 @@
 package sing.utils.demo;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
+import sing.utils.BaseActivity;
 import sing.utils.R;
 import sing.widget.RoundProgressBar;
 
-public class ActRoundProgressBar extends AppCompatActivity {
+public class ActRoundProgressBar extends BaseActivity {
 
     private int mTotalProgress;
     private int mCurrentProgress;

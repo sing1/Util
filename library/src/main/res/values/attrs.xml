@@ -16,4 +16,21 @@
         </attr>
     </declare-styleable>
 
+    <declare-styleable name="RoundImageView">
+        <attr name="press_alpha" format="integer" />
+        <attr name="press_color" format="color" />
+        <attr name="radius" format="dimension" />
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="leftTopRadius" format="dimension" />
+        <attr name="leftBottomRadius" format="dimension" />
+        <attr name="rightTopRadius" format="dimension" />
+        <attr name="rightBottomRadius" format="dimension" />
+
+        <attr name="shape_type" format="enum">
+            <enum name="circle" value="0" />
+            <enum name="rect" value="1" />
+            <enum name="irregular" value="2" />
+        </attr>
+    </declare-styleable>
 </resources>
