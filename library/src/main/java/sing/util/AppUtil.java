@@ -651,7 +651,6 @@ public class AppUtil {
                 activityField.setAccessible(true);
                 topActivity = (Activity) activityField.get(activityClientRecord);
             }
-
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (NoSuchMethodException e) {

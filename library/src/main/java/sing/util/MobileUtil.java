@@ -15,6 +15,7 @@ import android.telephony.TelephonyManager;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.EditText;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -23,12 +24,26 @@ import java.net.SocketException;
 import java.util.Enumeration;
 import java.util.UUID;
 
-import static android.R.attr.name;
-
 /**
  * 手机信息
  */
 public class MobileUtil {
+
+    public static String getLocalIpAddress(Activity context) {
+        //获取wifi服务
+        WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
+        //判断wifi是否开启
+        if (!wifiManager.isWifiEnabled()) {
+            wifiManager.setWifiEnabled(true);
+        }
+        WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+        int ipAddress = wifiInfo.getIpAddress();
+
+        return (ipAddress & 0xFF) + "." +
+                ((ipAddress >> 8) & 0xFF) + "." +
+                ((ipAddress >> 16) & 0xFF) + "." +
+                (ipAddress >> 24 & 0xFF);
+    }
 
     // 获取IP（ipv4）地址
     public static String getLocalIpAddress() {
@@ -59,6 +74,9 @@ public class MobileUtil {
     public static String getProvidersName(Context context) {
         String ProvidersName = null;
         String IMSI = ((TelephonyManager) context.getSystemService("phone")).getSubscriberId();
+        if (StringUtil.isEmpty(IMSI)){
+            return "null";
+        }
         // IMSI号前面3位460是国家，紧接着后面2位00 02 07是中国移动，01是中国联通，03是中国电信。
         if (IMSI.startsWith("46000") || IMSI.startsWith("46002") || IMSI.startsWith("46007")) {
             ProvidersName = "中国移动";
@@ -147,7 +165,7 @@ public class MobileUtil {
         return (isAirplaneMode == 1) ? true : false;
     }
 
-    // 设置手机飞行模式,rue:设置为飞行模式 false:取消飞行模式
+    // 设置手机飞行模式,rue:设置为飞行模式 false:取消飞行模式，API4.2以下
     public static void setAirplaneModeOn(Context context, boolean enabling) {
         Settings.System.putInt(context.getContentResolver(), Settings.System.AIRPLANE_MODE_ON, enabling ? 1 : 0);
         Intent intent = new Intent(Intent.ACTION_AIRPLANE_MODE_CHANGED);
@@ -155,7 +173,7 @@ public class MobileUtil {
         context.sendBroadcast(intent);
     }
 
-    // 设置亮度
+    // 设置亮度  <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     public static void setBrightness(Activity activity, int brightness) {
         WindowManager.LayoutParams lp = activity.getWindow().getAttributes();
         lp.screenBrightness = Float.valueOf(brightness) * (1f / 255f);

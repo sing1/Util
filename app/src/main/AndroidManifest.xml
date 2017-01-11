@@ -28,6 +28,10 @@
         <activity android:name=".demo.ActRoundProgressBar" />
         <activity android:name=".demo.ActSwipeBackLayout" />
         <activity android:name=".demo.ActRoundImageView" />
+        <activity android:name=".demo.ActAppUtil" />
+        <activity android:name=".demo.ActKeyboardUtil" />
+        <activity android:name=".demo.ActMatchUtil" />
+        <activity android:name=".demo.ActMobileUtil" />
     </application>
 
 </manifest>

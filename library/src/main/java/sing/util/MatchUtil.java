@@ -22,7 +22,6 @@ public class MatchUtil {
     // 邮政编码
     private static final String post_code = "\\d{6}";
 
-
     // 判断字符串是否为数字
     public static boolean isNumeric(String str) {
         Pattern pattern = Pattern.compile("[0-9]*");

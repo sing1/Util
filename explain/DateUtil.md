@@ -113,9 +113,4 @@ DateUtil.getDateFormat(String);// 日期的格式(如顶部格式)
 ######获取日期中的某数值
 ```Java  
 DateUtil.getInteger(Date, int);// 日期,类型(如:Calendar.HOUR_OF_DAY、Calendar.SECOND)
-``` 
-
-
-
-
-
+```

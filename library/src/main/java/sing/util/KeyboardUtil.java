@@ -22,7 +22,7 @@ public class KeyboardUtil {
                 }
             }
         } else {
-            mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_NOT_ALWAYS);
+            mInputMethodManager.toggleSoftInput(0, InputMethodManager.HIDE_IMPLICIT_ONLY);
         }
     }
 
@@ -63,6 +63,4 @@ public class KeyboardUtil {
                     InputMethodManager.HIDE_NOT_ALWAYS);
         }
     }
-
-
 }

@@ -19,7 +19,7 @@ public class AppProcessInfo implements Comparable<AppProcessInfo> {
     public Drawable icon;
     /** 占用的内存. */
     public long memory;
-    /** 占用的内存. */
+    /** 占用的cpu. */
     public String cpu;
     /** 进程的状态，其中S表示休眠，R表示正在运行，Z表示僵死状态，N表示该进程优先值是负数. */
     public String status;

@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,8 +17,12 @@ import java.util.List;
 
 import sing.util.SelectorUtil;
 import sing.utils.demo.ActAnimationUtil;
+import sing.utils.demo.ActAppUtil;
 import sing.utils.demo.ActDateTimeUtil;
+import sing.utils.demo.ActKeyboardUtil;
 import sing.utils.demo.ActLogUtil;
+import sing.utils.demo.ActMatchUtil;
+import sing.utils.demo.ActMobileUtil;
 import sing.utils.demo.ActRandomTextView;
 import sing.utils.demo.ActRoundImageView;
 import sing.utils.demo.ActRoundProgressBar;
@@ -28,7 +31,7 @@ import sing.utils.demo.ActSharedPreferencesUtil;
 import sing.utils.demo.ActSwipeBackLayout;
 import sing.utils.demo.ActToastUtil;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
 
     private Activity context;
     private RecyclerView recyclerView;
@@ -66,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
         list.add(new MainBean("RoundProgressBar",ActRoundProgressBar.class));
         list.add(new MainBean("SwipeBackLayout",ActSwipeBackLayout.class));
         list.add(new MainBean("RoundImageView",ActRoundImageView.class));
+        list.add(new MainBean("AppUtil",ActAppUtil.class));
+        list.add(new MainBean("KeyboardUtil",ActKeyboardUtil.class));
+        list.add(new MainBean("MatchUtil",ActMatchUtil.class));
+        list.add(new MainBean("MobileUtil",ActMobileUtil.class));
         return list;
     }
 

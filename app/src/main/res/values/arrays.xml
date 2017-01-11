@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="matchUtil">
+        <item>判断字符串是否为数字</item>
+        <item>判断字符串是否为日期格式</item>
+        <item>判断是否为IP</item>
+        <item>判断是否为邮箱</item>
+        <item>判断是否为汉字</item>
+        <item>判断是否为车牌</item>
+        <item>判断是否为邮政编码</item>
+        <item>判断是否为身份证号</item>
+    </string-array>
+</resources>

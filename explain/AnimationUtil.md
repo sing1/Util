@@ -1,6 +1,6 @@
 #AnimationUtil
  
- ![](.././app/src/main/res/mipmap-xhdpi/ic_animation.gif "") 
+![](.././app/src/main/res/mipmap-xhdpi/ic_animation.gif "") 
 ##API
 ######一个旋转动画
 ```JAVA

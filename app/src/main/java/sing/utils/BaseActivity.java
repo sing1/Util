@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
+import sing.util.ScreenUtil;
 import sing.widget.SwipeBackLayout;
 
 public class BaseActivity extends AppCompatActivity {
@@ -12,7 +13,8 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        new SwipeBackLayout(this).bindActivity(this);
+
+        new SwipeBackLayout(this, ScreenUtil.getScreenWidth(this));
     }
 
     @Override

@@ -2,8 +2,8 @@
  
 代码属于长期积累，基本没有保存原文地址，如若侵权请告知，定补上原文出处和作者版权！
 ## apk
-[Util-1.0.3-sample.apk](https://github.com/Sing1/Util/blob/master/app/app-debug.apk)
-都是一些简单的工具类，没什么好写的demo，apk不再更新
+[Util-1.0.8-sample.apk](https://github.com/Sing1/Util/blob/master/app/app-debug.apk)
+
 ## gradle:
 ```groovy
 dependencies {
