@@ -9,5 +9,6 @@
         <item>判断是否为车牌</item>
         <item>判断是否为邮政编码</item>
         <item>判断是否为身份证号</item>
+        <item>判断是否为手机号</item>
     </string-array>
 </resources>

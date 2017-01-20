@@ -29,6 +29,10 @@ MatchUtil.isCarId(String)
 ```JAVA
 MatchUtil.isPostCode(String)
 ```
+######判断是否为手机号
+```JAVA
+MatchUtil.isPhone(String)
+```
 ######身份证号码验证
 ```JAVA
 MatchUtil.isIDCard(String)throws RuntimeException //很详细的哦

@@ -21,6 +21,8 @@ public class MatchUtil {
     private static final String car_id = "^[\u0391-\uFFE5]{1}[a-zA-Z0-9]{6}$";
     // 邮政编码
     private static final String post_code = "\\d{6}";
+    // 手机
+    private static final String phone = "^[1][0-9]{10}$";
 
     // 判断字符串是否为数字
     public static boolean isNumeric(String str) {
@@ -64,6 +66,13 @@ public class MatchUtil {
     // 判断是否为邮政编码
     public static boolean isPostCode(String str) {
         Pattern pattern = Pattern.compile(post_code);
+        Matcher m = pattern.matcher(str);
+        return m.matches();
+    }
+
+    // 是否为手机号
+    public static boolean isPhone(String str){
+        Pattern pattern = Pattern.compile(phone);
         Matcher m = pattern.matcher(str);
         return m.matches();
     }

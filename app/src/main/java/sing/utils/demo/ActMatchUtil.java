@@ -49,6 +49,8 @@ public class ActMatchUtil extends BaseActivity{
             bool = MatchUtil.isPostCode(text);
         }else if (position == 7){
             bool = MatchUtil.isIDCard(text);
+        }else if (position == 8){
+            bool = MatchUtil.isPhone(text);
         }
         ToastUtil.showShort(bool+"");
     }

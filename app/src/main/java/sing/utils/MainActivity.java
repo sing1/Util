@@ -31,7 +31,7 @@ import sing.utils.demo.ActSharedPreferencesUtil;
 import sing.utils.demo.ActSwipeBackLayout;
 import sing.utils.demo.ActToastUtil;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends AppCompatActivity {
 
     private Activity context;
     private RecyclerView recyclerView;
