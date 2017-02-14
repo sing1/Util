@@ -15,7 +15,6 @@ import android.telephony.TelephonyManager;
 import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.EditText;
 
 import java.lang.reflect.Method;
 import java.net.InetAddress;
@@ -26,9 +25,10 @@ import java.util.UUID;
 
 /**
  * 手机信息
+ * 主项目自行添加相关权限（有时用不到的方法没必要添加权限，避免迷惑用户）
  */
 public class MobileUtil {
-
+    // 获取IP（ipv4）地址 <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     public static String getLocalIpAddress(Activity context) {
         //获取wifi服务
         WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);

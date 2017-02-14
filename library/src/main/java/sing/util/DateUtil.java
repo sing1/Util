@@ -217,19 +217,23 @@ public class DateUtil {
 
     // 获得当前时间
     public static String getCurrentTime() {
-        return getDateFormat(YYYY_MM_DD_HH_MM_SS).format(new Date());
+        return getCurrentTime(YYYY_MM_DD_HH_MM_SS);
     }
     public static String getCurrentTime(String pattern) {
         return getDateFormat(pattern).format(new Date());
     }
 
-    // 可以获取昨天的日期
+    // 获取昨天的日期
     public static String getYesterday() {
+        return getYesterday(YYYY_MM_DD);
+    }
+    // 获取昨天的日期
+    public static String getYesterday(String pattern) {
         Date date = new Date(System.currentTimeMillis() - 86400L * 1000L);
         String str = getDateFormat(YYYY_MM_DD).format(date);
         try {
             date = getDateFormat(YYYY_MM_DD_HH_MM_SS).parse(str + " 00:00:00");
-            return getDateFormat(YYYY_MM_DD).format(date);
+            return getDateFormat(pattern).format(date);
         } catch (ParseException e) {
             e.printStackTrace();
         }
