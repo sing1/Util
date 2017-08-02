@@ -5,10 +5,10 @@ SpannableString和String一样是一种字符串类型，不同的是SpannableSt
  * @param start 需要设置格式的子字符串的起始下标
  * @param end 需要设置格式的子字符串的终了下标
  * @param flags 共有四种属性
- *             Spanned.SPAN_INCLUSIVE_EXCLUSIVE,从起始下标到终了下标，包括起始下标
- *             Spanned.SPAN_INCLUSIVE_INCLUSIVE,从起始下标到终了下标，同时包括起始下标和终了下标
- *             Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,从起始下标到终了下标，但都不包括起始下标和终了下标
- *             Spanned.SPAN_EXCLUSIVE_INCLUSIVE,从起始下标到终了下标，包括终了下标
+ *           Spanned.SPAN_INCLUSIVE_EXCLUSIVE,从起始下标到终了下标，包括起始下标
+ *           Spanned.SPAN_INCLUSIVE_INCLUSIVE,从起始下标到终了下标，同时包括起始下标和终了下标
+ *           Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,从起始下标到终了下标，但都不包括起始下标和终了下标
+ *           Spanned.SPAN_EXCLUSIVE_INCLUSIVE,从起始下标到终了下标，包括终了下标
  */
 setSpan(Object what, int start, int end, int flags);
 ```
@@ -76,7 +76,7 @@ SubscriptSpan span = new SubscriptSpan();
 str.setSpan(span, 5, str.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 textView.setText(str);
 ```
-######为文字设置风格(粗体、斜体、粗斜体) 
+###### 为文字设置风格(粗体、斜体、粗斜体) 
 ![](http://upload-images.jianshu.io/upload_images/7115680-03b6556d237248dc.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```JAVA
 SpannableString str = new SpannableString("为文字设置粗体/斜体/粗斜体风格");
@@ -88,7 +88,7 @@ str.setSpan(styleSpan_I, 8, 10, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 str.setSpan(styleSpan_BI, 11, 14, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 textView.setText(str);
 ```
-######设置文本图片
+###### 设置文本图片
 ![](http://upload-images.jianshu.io/upload_images/7115680-b70d14566020bf4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```JAVA
 SpannableString str = new SpannableString("在文本中添加表情（表情）");
@@ -98,7 +98,7 @@ ImageSpan imageSpan = new ImageSpan(drawable);
 str.setSpan(imageSpan, 6, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
 textView.setText(str);
 ```
-######设置可点击的文本
+###### 设置可点击的文本
 ![](http://upload-images.jianshu.io/upload_images/7115680-a38c4af3e9421a8b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```JAVA
 SpannableString str = new SpannableString("为文字设置点击事件");
@@ -125,7 +125,7 @@ class MyClickableSpan extends ClickableSpan {
     }
 }
 ```
-######设置超链接文本
+###### 设置超链接文本
 ![](http://upload-images.jianshu.io/upload_images/7115680-aa0f1fdea4268cd4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 ```JAVA
 // URLSpan就是继承自ClickableSpan，重写onClick点击事件，用系统自带浏览器打开链接
