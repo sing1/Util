@@ -6,8 +6,8 @@ SpannableString和String一样是一种字符串类型，不同的是SpannableSt
  * @param end 需要设置格式的子字符串的终了下标
  * @param flags 共有四种属性
  *           Spanned.SPAN_INCLUSIVE_EXCLUSIVE,从起始下标到终了下标，包括起始下标
- *           Spanned.SPAN_INCLUSIVE_INCLUSIVE,从起始下标到终了下标，同时包括起始下标和终了下标
- *           Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,从起始下标到终了下标，但都不包括起始下标和终了下标
+ *           Spanned.SPAN_INCLUSIVE_INCLUSIVE,从起始下标到终了下标，包括起始下标和终了下标
+ *           Spanned.SPAN_EXCLUSIVE_EXCLUSIVE,从起始下标到终了下标，不包括起始下标和终了下标
  *           Spanned.SPAN_EXCLUSIVE_INCLUSIVE,从起始下标到终了下标，包括终了下标
  */
 setSpan(Object what, int start, int end, int flags);
