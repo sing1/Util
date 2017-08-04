@@ -1,54 +1,140 @@
-# Utils
- 
-代码属于长期积累，基本没有保存原文地址，如若侵权请告知，定补上原文出处和作者版权！
-## apk
-[Util-1.0.8-sample.apk](https://github.com/Sing1/Util/blob/master/app/app-debug.apk)
+单例模式的写法很多，比较靠谱的的写法如下：
 
-## gradle:
-```groovy
-dependencies {
-    ...
-    compile 'sing.util:library:1.0.9'
+```JAVA
+public class Elvis {  
+    private static boolean flag = false;  
+  
+    private Elvis(){  
+    }  
+  
+    private  static class SingletonHolder{  
+        private static final Elvis INSTANCE = new Elvis();  
+    }  
+  
+    public static Elvis getInstance() {  
+        return SingletonHolder.INSTANCE;  
+    }  
+}  
+```
+但前提是不会通过反射调用私有的构造器。若通过反射机制来“攻击”单例模式：
+ 
+```JAVA
+package com.effective.singleton;  
+  
+import java.lang.reflect.Constructor;  
+import java.lang.reflect.InvocationTargetException;  
+  
+public class ElvisReflectAttack {  
+  
+    public static void main(String[] args) throws Exception {  
+        Class<?> classType = Elvis.class;  
+  
+        Constructor<?> c = classType.getDeclaredConstructor(null);  
+        c.setAccessible(true);  
+        Elvis e1 = (Elvis)c.newInstance();  
+        Elvis e2 = Elvis.getInstance();  
+        System.out.println(e1==e2);  
+    }
+}  
+```
+运行结果：false，通过反射获取构造函数，然后调用setAccessible(true)就可以调用私有的构造函数，所以e1和e2是两个不同的对象，如果要抵御这种攻击，可以修改构造器，让它在被要求创建第二个实例的时候抛出异常：
+
+```JAVA
+public class ElvisModified {  
+    private static boolean flag = false;  
+  
+    private ElvisModified(){  
+        synchronized(ElvisModified.class)  {  
+            if(flag == false){  
+                flag = !flag;  
+            } else {  
+                throw new RuntimeException("单例模式被侵犯！");  
+            }  
+        }  
+    }  
+  
+    private  static class SingletonHolder{  
+        private static final ElvisModified INSTANCE = new ElvisModified();  
+    }  
+  
+    public static ElvisModified getInstance() {  
+        return SingletonHolder.INSTANCE;  
+    } 
+}  
+```
+测试代码：
+ 
+```JAVA
+package com.effective.singleton;  
+  
+import java.lang.reflect.Constructor;  
+  
+public class ElvisModifiedReflectAttack {  
+  
+    public static void main(String[] args) {  
+        try {  
+            Class<ElvisModified> classType = ElvisModified.class;  
+  
+            Constructor<ElvisModified> c = classType.getDeclaredConstructor(null);  
+            c.setAccessible(true);  
+            ElvisModified e1 = (ElvisModified)c.newInstance();  
+            ElvisModified e2 = ElvisModified.getInstance();  
+            System.out.println(e1==e2);  
+        } catch (Exception e) {  
+            e.printStackTrace();  
+        }  
+    }  
+}  
+```
+运行结果：
+
+```JAVA
+Exception in thread "main" java.lang.ExceptionInInitializerError  
+    at com.effective.singleton.ElvisModified.getInstance(ElvisModified.java:27)  
+    at com.effective.singleton.ElvisModifiedReflectAttack.main(ElvisModifiedReflectAttack.java:17)  
+Caused by: java.lang.RuntimeException: 单例模式被侵犯！  
+    at com.effective.singleton.ElvisModified.<init>(ElvisModified.java:16)  
+    at com.effective.singleton.ElvisModified.<init>(ElvisModified.java:7)  
+    at com.effective.singleton.ElvisModified$SingletonHolder.<clinit>(ElvisModified.java:22)  
+    ... 2 more  
+```
+可以看到，成功的阻止了单例模式被破坏。  
+从JDK1.5开始，实现Singleton还有新的写法，只需编写一个包含单个元素的枚举类型。推荐写法：
+
+```JAVA
+public enum SingletonClass {  
+    INSTANCE;  
+  
+    public void test() {  
+        System.out.println("The Test!");  
+    }  
+}  
+```
+测试代码：
+
+```JAVA
+package com.effective;  
+  
+import java.lang.reflect.Constructor;  
+import java.lang.reflect.InvocationTargetException;  
+  
+import com.effective.singleton.SingletonClass;  
+  
+public class TestMain  {  
+    public static void main(String[] args) throws Exception {  
+        Class<SingletonClass> classType = SingletonClass.class;  
+        Constructor<SingletonClass> c = (Constructor<SingletonClass>) classType.getDeclaredConstructor();  
+        c.setAccessible(true);  
+        c.newInstance();  
+    }
 }
 ```
-## Maven:
-```xml
-<dependency>
-　　<groupId>sing.util</groupId>
-　　<artifactId>library</artifactId>
-　　<version>1.0.9</version>
-　　<type>pom</type>
-</dependency>
+运行结果：
+
+```JAVA
+Exception in thread "main" java.lang.NoSuchMethodException: com.effective.singleton.SingletonClass.<init>()  
+    at java.lang.Class.getConstructor0(Unknown Source)  
+    at java.lang.Class.getDeclaredConstructor(Unknown Source)  
 ```
-每次新建项目还在各种copy工具类吗？  
-别那么麻烦了，发给我我帮你上传，只需上面的操作即可使用全部，好东西大家一起用。  
-欢迎大家多多提供工具类，多多指出BUG。  
-不断完善中。  
-BUG地址：https://github.com/Sing1/Util/issues  
-工具类发送邮箱：15202653100@163.com
-## Details:
->- [AnimationUtil](https://github.com/Sing1/Util/blob/master/explain/AnimationUtil.md)
->- [AppUtil](https://github.com/Sing1/Util/blob/master/explain/AppUtil.md)
->- [DateTimeUtil](https://github.com/Sing1/Util/blob/master/explain/DateTimeUtil.md)
->- [DateUtil](https://github.com/Sing1/Util/blob/master/explain/DateUtil.md)
->- [EncodeUtil](https://github.com/Sing1/Util/blob/master/explain/EncodeUtil.md)
->- [FileUtil](https://github.com/Sing1/Util/blob/master/explain/FileUtil.md)
->- [ImageUtil](https://github.com/Sing1/Util/blob/master/explain/ImageUtil.md)
->- [KeyboardUtil](https://github.com/Sing1/Util/blob/master/explain/KeyboardUtil.md)
->- [LogUtil](https://github.com/Sing1/Util/blob/master/explain/LogUtil.md)
->- [MatchUtil](https://github.com/Sing1/Util/blob/master/explain/MatchUtil.md)
->- [MobileUtil](https://github.com/Sing1/Util/blob/master/explain/MobileUtil.md)
->- [MoneyUtils](https://github.com/Sing1/Util/blob/master/explain/MoneyUtils.md)
->- [RandomUtil](https://github.com/Sing1/Util/blob/master/explain/RandomUtil.md)
->- [ScreenUtil](https://github.com/Sing1/Util/blob/master/explain/ScreenUtil.md)
->- [SensitivewordFilterUtil](https://github.com/Sing1/Util/blob/master/explain/SensitivewordFilterUtil.md)
->- [SharedPreferencesUtil](https://github.com/Sing1/Util/blob/master/explain/SharedPreferencesUtil.md)
->- [StringUtil](https://github.com/Sing1/Util/blob/master/explain/StringUtil.md)
->- [ToastUtil](https://github.com/Sing1/Util/blob/master/explain/ToastUtil.md)
->- [ZipUtil](https://github.com/Sing1/Util/blob/master/explain/ZipUtil.md)
->- [PermissionUtil](https://github.com/Sing1/Util/blob/master/explain/PermissionUtil.md)
->- [SelectorUtil](https://github.com/Sing1/Util/blob/master/explain/SelectorUtil.md)
->- [RandomTextView](https://github.com/Sing1/Util/blob/master/explain/RandomTextView.md)
->- [RoundProgressBar](https://github.com/Sing1/Util/blob/master/explain/RoundProgressBar.md)
->- [SwipeBackLayout](https://github.com/Sing1/Util/blob/master/explain/SwipeBackLayout.md)
->- [RoundImageView](https://github.com/Sing1/Util/blob/master/explain/RoundImageView.md)
+由此可见这种写法也可以防止单例模式被“攻击”。  
+单元素的枚举类型已经成为实现Singleton模式的最佳方法。
