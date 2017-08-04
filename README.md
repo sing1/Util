@@ -127,8 +127,8 @@ AC ED 00 05 73
 ##### 第二部分是序列化类的描述  
 > 72：TC_CLASSDESC声明这里开始一个新class  
 > 00 17：class名字的长度是23字节  
-> 63 6F 6D 2E 73 65 72 69 61 6C 69 7A 65 2E 53 65 72 69 61 6C 69 7A 65:类名（ASCII码：com.serialize.Serialize）    
-B7 AD 6C AC 04 0E D0 8C： SerialVersionUID  
+> 63 6F 6D 2E 73 65 72 69 61 6C 69 7A 65 2E 53 65 72 69 61 6C 69 7A 65:完整类名
+> B7 AD 6C AC 04 0E D0 8C： SerialVersionUID  
 > 02：标记号，改值声明改对象支持序列化  
 > 00 01：该类所包含的域的个数为1  
 
