@@ -188,7 +188,7 @@ public class Serialize implements Serializable{
         } catch (ClassNotFoundException | IOException e){  
             e.printStackTrace();  
         }  
-        System.out.println("序列化和反序列化的对象相同否？"+(serialize1==serialize2));  
+        System.out.println("序列化和反序列化的对象相同否?"+(serialize1==serialize2));  
     }  
   
     public static void main(String[] args) {  
@@ -202,7 +202,7 @@ public class Serialize implements Serializable{
 ```JAVA
 序列化结束  
 反序列化结束  
-序列化和反序列化的对象相同否？false  
+序列化和反序列化的对象相同否?false  
 ```
 序列化前后对象的地址不同了，但是内容是一样的，而且对象中包含的引用也相同。换句话说，通过序列化操作,我们可以实现对任何可Serializable对象的”深度复制（deep copy）"——这意味着我们复制的是整个对象网，而不仅仅是基本对象及其引用。对于同一流的对象，他们的地址是相同，说明他们是同一个对象，但是与其他流的对象地址却不相同。也就说，只要将对象序列化到单一流中，就可以恢复出与我们写出时一样的对象网，而且只要在同一流中，对象都是同一个。
 
