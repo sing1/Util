@@ -298,10 +298,6 @@ true
 ```
 至于为什么，ObjectIputStream.class的源码中有这样一段话
 ![](http://upload-images.jianshu.io/upload_images/7115680-24e7fc4b8a040dfb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
- 
-[^quote]:Deserializing an object via readUnshared invalidates the stream handle associated with the returned object. Note that this in itself does not always guarantee that the reference returned by readUnshared is unique; the deserialized object may define a readResolve method which returns an object visible to other parties, or readUnshared may return a Class object or enum constant obtainable elsewhere in the stream or through external means. If the deserialized object defines a readResolve method and the invocation of that method returns an array, then readUnshared returns a shallow clone of that array; this guarantees that the returned
-array object is unique and cannot be obtained a second time from an invocation of readObject or readUnshared on the ObjectInputStream, even if the underlying data stream has been manipulated.
-
 一般来说，对单例进行序列化和反序列化的场景并不多见，但如果存在，就要多加注意。
 ##### 8、序列化ID
 序列化 ID 在 Eclipse 下提供了两种生成策略，一个是固定的 1L，一个是随机生成一个不重复的 long 类型数据（实际上是使用 JDK 工具生成），在这里有一个建议，如果没有特殊需求，就是用默认的 1L 就可以，这样可以确保代码一致时反序列化成功。这也可能是造成序列化和反序列化失败的原因，因为不同的序列化id之间不能进行序列化和反序列化。
