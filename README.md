@@ -18,17 +18,10 @@ public class Elvis {
 ```
 但前提是不会通过反射调用私有的构造器。若通过反射机制来“攻击”单例模式：
  
-```JAVA
-package com.effective.singleton;  
-  
-import java.lang.reflect.Constructor;  
-import java.lang.reflect.InvocationTargetException;  
-  
+```JAVA  
 public class ElvisReflectAttack {  
-  
     public static void main(String[] args) throws Exception {  
         Class<?> classType = Elvis.class;  
-  
         Constructor<?> c = classType.getDeclaredConstructor(null);  
         c.setAccessible(true);  
         Elvis e1 = (Elvis)c.newInstance();  
@@ -65,16 +58,10 @@ public class ElvisModified {
 测试代码：
  
 ```JAVA
-package com.effective.singleton;  
-  
-import java.lang.reflect.Constructor;  
-  
 public class ElvisModifiedReflectAttack {  
-  
     public static void main(String[] args) {  
         try {  
             Class<ElvisModified> classType = ElvisModified.class;  
-  
             Constructor<ElvisModified> c = classType.getDeclaredConstructor(null);  
             c.setAccessible(true);  
             ElvisModified e1 = (ElvisModified)c.newInstance();  
@@ -90,8 +77,7 @@ public class ElvisModifiedReflectAttack {
 
 ```JAVA
 Exception in thread "main" java.lang.ExceptionInInitializerError  
-    at com.effective.singleton.ElvisModified.getInstance(ElvisModified.java:27)  
-    at com.effective.singleton.ElvisModifiedReflectAttack.main(ElvisModifiedReflectAttack.java:17)  
+    ... 
 Caused by: java.lang.RuntimeException: 单例模式被侵犯！  
     at com.effective.singleton.ElvisModified.<init>(ElvisModified.java:16)  
     at com.effective.singleton.ElvisModified.<init>(ElvisModified.java:7)  
@@ -113,13 +99,6 @@ public enum SingletonClass {
 测试代码：
 
 ```JAVA
-package com.effective;  
-  
-import java.lang.reflect.Constructor;  
-import java.lang.reflect.InvocationTargetException;  
-  
-import com.effective.singleton.SingletonClass;  
-  
 public class TestMain  {  
     public static void main(String[] args) throws Exception {  
         Class<SingletonClass> classType = SingletonClass.class;  
