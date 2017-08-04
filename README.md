@@ -1,16 +1,16 @@
 ### JAVA序列化
-##### 1、什么是序列化和反序列化  
+#### 1、什么是序列化和反序列化  
 * Serialization（序列化）是一种将对象以一连串的字节描述的过程。
 * 反序列化deserialization是一种将这些字节重建成一个对象的过程。  
 
-##### 2、什么情况下需要序列化
+#### 2、什么情况下需要序列化
 * 当你想把的内存中的对象保存到一个文件中或者数据库中时候(数据持久化)；
 * 利用序列化实现远程通信，即在网络上传送对象的字节序列；
 
-##### 3、如何实现序列化
+#### 3、如何实现序列化
 * 将需要序列化的类实现Serializable接口就可以了，Serializable接口中没有任何方法，可以理解为一个标记，即表明这个类可以序列化.
 
-##### 4、序列化和反序列化例子
+#### 4、序列化和反序列化例子
 * 如果我们想要序列化一个对象，首先要创建某些OutputStream(如FileOutputStream、ByteArrayOutputStream等)，然后将这些OutputStream封装在一个ObjectOutputStream中。这时候，只需要调用writeObject()方法就可以将对象序列化，并将其发送给OutputStream（对象的序列化是基于字节的，不能使用Reader和Writer等基于字符的层次结构）。而反序列的过程（即将一个序列还原成为一个对象），需要将一个InputStream(如FileInputstream、ByteArrayInputStream等)封装在ObjectInputStream内，然后调用readObject()即可。
 
 ```JAVA
@@ -36,7 +36,8 @@ public class Serialize implements Serializable{
             Serialize serialize = new Serialize();  
             oos.writeObject(serialize);  
             oos.flush();  
-            oos.close();//只是为了做个例子，真实编程要放到finally下	         fos.close();  
+            oos.close();//只是为了做个例子，真实编程要放到finally下  
+            fos.close();  
             System.out.println("序列化结束");  
         } catch (FileNotFoundException e) {  
             e.printStackTrace();  
@@ -75,7 +76,7 @@ public class Serialize implements Serializable{
 反序列化结束  
 1390 
 ```
-##### 5、序列化的数据含有那些信息
+#### 5、序列化的数据含有那些信息
 这里举个例子将上面例子中的serialize.obj的信息读取出来：
 
 ```JAVA
@@ -118,12 +119,12 @@ AC ED 00 05 73
 78 70  
 00 00 05 6E  
 ```
-第一部分是序列化文件头  
+##### 第一部分是序列化文件头  
 > AC ED：STREAM_MAGIC声明使用了序列化协议  
 > 00 05：STREAM_VERSION序列化协议版本  
 > 73：TC_OBJECT声明这是一个新的对象  
 
-第二部分是序列化类的描述  
+##### 第二部分是序列化类的描述  
 > 72：TC_CLASSDESC声明这里开始一个新class  
 > 00 17：class名字的长度是23字节  
 > 63 6F 6D 2E 73 65 72 69 61 6C 69 7A 65 2E 53 65 72 69 61 6C 69 7A 65:类名（ASCII码：com.serialize.Serialize）    
@@ -131,19 +132,19 @@ B7 AD 6C AC 04 0E D0 8C： SerialVersionUID
 > 02：标记号，改值声明改对象支持序列化  
 > 00 01：该类所包含的域的个数为1  
 
-第三部分是对象中各个属性项的描述  
+##### 第三部分是对象中各个属性项的描述  
 > 49：域类型，代表I,表示Int类型（又如：44，查ASCII码表为D，代表Double类型）  
 > 00 03：域名字的长度，为3  
 > 6E 75 6D: num属性的名称  
 
-第四部分输出该对象父类信息描述，这里没有父类，如果有，则数据格式与第二部分一样  
+##### 第四部分输出该对象父类信息描述，这里没有父类，如果有，则数据格式与第二部分一样  
 > 78：TC_ENDBLOCKDATA，对象块接收标志  
 > 70：TC_NULL，说明没有其他超类的标志  
 
-第五部分输出对象的属性的实际值，如果属性项是一个对象，那么这里还将序列化这个对象，规则和第2部分一样。  
+##### 第五部分输出对象的属性的实际值，如果属性项是一个对象，那么这里还将序列化这个对象，规则和第2部分一样。  
 > 00 00 05 6E：1390的值  
 
-##### 6、序列化前和序列化后的对象的关系  
+#### 6、序列化前和序列化后的对象的关系  
 序列化时深复制，反序列化还原后的对象地址与原来的不同。 
  
 ```JAVA
@@ -169,7 +170,8 @@ public class Serialize implements Serializable{
             ObjectOutputStream oos = new ObjectOutputStream(fos);  
             oos.writeObject(serialize1);  
             oos.flush();  
-            oos.close();//只是为了做个例子，真实编程要放到finally下            			  fos.close();  
+            oos.close();//只是为了做个例子，真实编程要放到finally下  
+            fos.close();  
             System.out.println("序列化结束");  
         } catch (IOException e) {  
             e.printStackTrace();  
