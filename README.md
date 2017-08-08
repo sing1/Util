@@ -1,6 +1,5 @@
 ### SharedPreferences存储效率探究
-
-[原文链接](https://mp.weixin.qq.com/s?__biz=MzIxNjc0ODExMA==&mid=2247484542&idx=1&sn=7d13266b4ca48fe1edd6d55a12a835b9&chksm=97851d5fa0f29449eb649c0945a41de359d446f56cdb8e45363475a515dbad1a24a39cd36c67&mpshare=1&scene=1&srcid=080804Zs7wLh8Zw8cX61ODNP&key=d6b389c30db0c4fd43f6fdb6d11e793492f2f27c5483ebc6a45b299d350034f0f52056958923c955578ae9f6bdcb861b881e7a848c4f634d21dc5e50ea789d9927a7151c3ca56839ab76916a9832058f&ascene=0&uin=MTkyMTMzNzI2MQ%3D%3D&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.12.1+build(16B2555)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=Ke9gbNVTItoG%2FSBGDp7AwuaFWX3lBTLHch60mXG2YuUW%2FC9zIi9PwqB%2Bcwp5yB%2BR)
+[ ](https://mp.weixin.qq.com/s?__biz=MzIxNjc0ODExMA==&mid=2247484542&idx=1&sn=7d13266b4ca48fe1edd6d55a12a835b9&chksm=97851d5fa0f29449eb649c0945a41de359d446f56cdb8e45363475a515dbad1a24a39cd36c67&mpshare=1&scene=1&srcid=080804Zs7wLh8Zw8cX61ODNP&key=d6b389c30db0c4fd43f6fdb6d11e793492f2f27c5483ebc6a45b299d350034f0f52056958923c955578ae9f6bdcb861b881e7a848c4f634d21dc5e50ea789d9927a7151c3ca56839ab76916a9832058f&ascene=0&uin=MTkyMTMzNzI2MQ%3D%3D&devicetype=iMac+MacBookPro12%2C1+OSX+OSX+10.12.1+build(16B2555)&version=12020810&nettype=WIFI&fontScale=100&pass_ticket=Ke9gbNVTItoG%2FSBGDp7AwuaFWX3lBTLHch60mXG2YuUW%2FC9zIi9PwqB%2Bcwp5yB%2BR)
 ### 一、前言
 　　SharedPreferences（简称SP）是 Android 系统提供的一个以 Key-Value 键值对形式的存储方式。如果需要获取数据，SP 中提供了对应的getXxx() 方法，如果需要存储数据，只需要拿到 Editor 对象，在 Editor 对象中，也提供了对应的 putXxx() 方法，在操作完成之后，调用 commit() 或者 apply() 即可。那么 commit() 和 apply() 有什么区别？
 
@@ -83,15 +82,15 @@ Context.getSharedPreferences()
 
 ```JAVA
 public void apply() {
-	final MemoryCommitResult mcr = commitToMemory();
-	final Runnable awaitCommit = new Runnable() {
-			public void run() {
-				try {
-					mcr.writtenToDiskLatch.await();
-				} catch (InterruptedException ignored) {
-				}
-			}
-		};
+    final MemoryCommitResult mcr = commitToMemory();
+    final Runnable awaitCommit = new Runnable() {
+            public void run() {
+                try {
+                    mcr.writtenToDiskLatch.await();
+                } catch (InterruptedException ignored) {
+                }
+            }
+        };
 
 	QueuedWork.add(awaitCommit);
 
