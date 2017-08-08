@@ -92,22 +92,22 @@ public void apply() {
             }
         };
 
-	QueuedWork.add(awaitCommit);
+    QueuedWork.add(awaitCommit);
 
-	Runnable postWriteRunnable = new Runnable() {
-			public void run() {
-				awaitCommit.run();
-				QueuedWork.remove(awaitCommit);
-				}
-		};
+    Runnable postWriteRunnable = new Runnable() {
+            public void run() {
+                awaitCommit.run();
+                QueuedWork.remove(awaitCommit);
+            }
+        };
 
-	SharedPreferencesImpl.this.enqueueDiskWrite(mcr, postWriteRunnable);
+    SharedPreferencesImpl.this.enqueueDiskWrite(mcr, postWriteRunnable);
 
-	// Okay to notify the listeners before it's hit disk
-	// because the listeners should always get the same
-	// SharedPreferences instance back, which has the
-	// changes reflected in memory.
-	notifyListeners(mcr);
+    // Okay to notify the listeners before it's hit disk
+    // because the listeners should always get the same
+    // SharedPreferences instance back, which has the
+    // changes reflected in memory.
+    notifyListeners(mcr);
 }
 ```
 ###### commit()：
