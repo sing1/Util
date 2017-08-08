@@ -81,50 +81,50 @@ Context.getSharedPreferences()
 ###### apply():
 
 ```JAVA
-public void apply() {
-    final MemoryCommitResult mcr = commitToMemory();
-    final Runnable awaitCommit = new Runnable() {
-            public void run() {
-                try {
-                    mcr.writtenToDiskLatch.await();
-                } catch (InterruptedException ignored) {
-                }
-            }
-        };
-
-    QueuedWork.add(awaitCommit);
-
-    Runnable postWriteRunnable = new Runnable() {
-            public void run() {
-                awaitCommit.run();
-                QueuedWork.remove(awaitCommit);
-            }
-        };
-
-    SharedPreferencesImpl.this.enqueueDiskWrite(mcr, postWriteRunnable);
-
-    // Okay to notify the listeners before it's hit disk
-    // because the listeners should always get the same
-    // SharedPreferences instance back, which has the
-    // changes reflected in memory.
-    notifyListeners(mcr);
-}
+361 public void apply() {
+362     final MemoryCommitResult mcr = commitToMemory();
+363     final Runnable awaitCommit = new Runnable() {
+364             public void run() {
+365                 try {
+366                     mcr.writtenToDiskLatch.await();
+367                 } catch (InterruptedException ignored) {
+368                 }
+369             }
+370         };
+371 
+372     QueuedWork.add(awaitCommit);
+373 
+374     Runnable postWriteRunnable = new Runnable() {
+375             public void run() {
+376                 awaitCommit.run();
+377                 QueuedWork.remove(awaitCommit);
+378             }
+379         };
+380 
+381     SharedPreferencesImpl.this.enqueueDiskWrite(mcr, postWriteRunnable);
+382 
+383     // Okay to notify the listeners before it's hit disk
+384     // because the listeners should always get the same
+385     // SharedPreferences instance back, which has the
+386     // changes reflected in memory.
+387     notifyListeners(mcr);
+388 }
 ```
 ###### commit()：
 
 ```JAVA
-public boolean commit() {
-    MemoryCommitResult mcr = commitToMemory();
-    SharedPreferencesImpl.this.enqueueDiskWrite(
-        mcr, null /* sync write on this thread okay */);
-    try {
-        mcr.writtenToDiskLatch.await();
-    } catch (InterruptedException e) {
-        return false;
-    }
-    notifyListeners(mcr);
-    return mcr.writeToDiskResult;
-}
+456 public boolean commit() {
+457     MemoryCommitResult mcr = commitToMemory();
+458     SharedPreferencesImpl.this.enqueueDiskWrite(
+459         mcr, null /* sync write on this thread okay */);
+460     try {
+461         mcr.writtenToDiskLatch.await();
+462     } catch (InterruptedException e) {
+463         return false;
+464     }
+465     notifyListeners(mcr);
+466     return mcr.writeToDiskResult;
+467 }
 ```
 
 对比发现 commit() 的实现非常的简单，并且在 SP 中，是通过 enqueueDiskWrite() 方法来控制是否是异步操作的。
@@ -132,55 +132,55 @@ public boolean commit() {
 下面看看 enqueueDiskWrite() 方法的实现。
 
 ```JAVA
-/**
- * Enqueue an already-committed-to-memory result to be written
- * to disk.
- *
- * They will be written to disk one-at-a-time in the order
- * that they're enqueued.
- *
- * @param postWriteRunnable if non-null, we're being called
- *   from apply() and this is the runnable to run after
- *   the write proceeds.  if null (from a regular commit()),
- *   then we're allowed to do this disk write on the main
- *   thread (which in addition to reducing allocations and
- *   creating a background thread, this has the advantage that
- *   we catch them in userdebug StrictMode reports to convert
- *   them where possible to apply() ...)
- */
-private void enqueueDiskWrite(final MemoryCommitResult mcr,
-                              final Runnable postWriteRunnable) {
-    final Runnable writeToDiskRunnable = new Runnable() {
-            public void run() {
-                synchronized (mWritingToDiskLock) {
-                    writeToFile(mcr);
-                }
-                synchronized (SharedPreferencesImpl.this) {
-                    mDiskWritesInFlight--;
-                }
-                if (postWriteRunnable != null) {
-                    postWriteRunnable.run();
-                }
-            }
-        };
-
-    final boolean isFromSyncCommit = (postWriteRunnable == null);
-
-    // Typical #commit() path with fewer allocations, doing a write on
-    // the current thread.
-    if (isFromSyncCommit) {
-        boolean wasEmpty = false;
-        synchronized (SharedPreferencesImpl.this) {
-            wasEmpty = mDiskWritesInFlight == 1;
-        }
-        if (wasEmpty) {
-            writeToDiskRunnable.run();
-            return;
-        }
-    }
-
-    QueuedWork.singleThreadExecutor().execute(writeToDiskRunnable);
-}
+494 /**
+495  * Enqueue an already-committed-to-memory result to be written
+496  * to disk.
+497  *
+498  * They will be written to disk one-at-a-time in the order
+499  * that they're enqueued.
+500  *
+501  * @param postWriteRunnable if non-null, we're being called
+502  *   from apply() and this is the runnable to run after
+503  *   the write proceeds.  if null (from a regular commit()),
+504  *   then we're allowed to do this disk write on the main
+505  *   thread (which in addition to reducing allocations and
+506  *   creating a background thread, this has the advantage that
+507  *   we catch them in userdebug StrictMode reports to convert
+508  *   them where possible to apply() ...)
+509  */
+510 private void enqueueDiskWrite(final MemoryCommitResult mcr,
+511                               final Runnable postWriteRunnable) {
+512     final Runnable writeToDiskRunnable = new Runnable() {
+513             public void run() {
+514                 synchronized (mWritingToDiskLock) {
+515                     writeToFile(mcr);
+516                 }
+517                 synchronized (SharedPreferencesImpl.this) {
+518                     mDiskWritesInFlight--;
+519                 }
+520                 if (postWriteRunnable != null) {
+521                     postWriteRunnable.run();
+522                 }
+523             }
+524         };
+525 
+526     final boolean isFromSyncCommit = (postWriteRunnable == null);
+527 
+528     // Typical #commit() path with fewer allocations, doing a write on
+529     // the current thread.
+530     if (isFromSyncCommit) {
+531         boolean wasEmpty = false;
+532         synchronized (SharedPreferencesImpl.this) {
+533             wasEmpty = mDiskWritesInFlight == 1;
+534         }
+535         if (wasEmpty) {
+536             writeToDiskRunnable.run();
+537             return;
+538         }
+539     }
+540 
+541     QueuedWork.singleThreadExecutor().execute(writeToDiskRunnable);
+542 }
 ```
 从注释里可以看到，如果 enqueueDiskWrite() 的第二个参数为 null 的话，则会变成同步操作。而正是因为在 commit() 中是同步操作，commit() 才可以拿到操作是否正确的结果。 
  
@@ -240,20 +240,20 @@ A 操作和 B 操作，在代码逻辑上应该是一样的，都是想 SP 中�
 那么，再看看 edit() 方法是如何实现的：
 
 ```JAVA
-public Editor edit() {
-    // TODO: remove the need to call awaitLoadedLocked() when
-    // requesting an editor.  will require some work on the
-    // Editor, but then we should be able to do:
-    //
-    //      context.getSharedPreferences(..).edit().putString(..).apply()
-    //
-    // ... all without blocking.
-    synchronized (this) {
-        awaitLoadedLocked();
-    }
-
-    return new EditorImpl();
-}
+275 public Editor edit() {
+276     // TODO: remove the need to call awaitLoadedLocked() when
+277     // requesting an editor.  will require some work on the
+278     // Editor, but then we should be able to do:
+279     //
+280     //      context.getSharedPreferences(..).edit().putString(..).apply()
+281     //
+282     // ... all without blocking.
+283     synchronized (this) {
+284         awaitLoadedLocked();
+285     }
+286 
+287     return new EditorImpl();
+288 }
 ```
 可以看出来，在 edit() 中是有 synchronized 这个同步锁来保证线程安全的，纵观 EditorImpl 的实现，可以看到大部分操作都是有同步锁的，但是只锁了 (this) ，也就是只对当前对象有效，而 edit() 方法是每次都会去重新 new 一个 EditorImpl() 这个Eidtor 接口的实现类。所以效率就应该是被这里影响到了。
 ### 四、结论
