@@ -1,12 +1,7 @@
----
-title: 搭建 hexo + github 个人博客
-date: 2016-08-12 10:05:37
-categories: 教程
-description: hexo是一款基于Node.js的静态博客框架
----
-
+## 搭建 hexo + github 个人博客
 
 [github地址](https://github.com/hexojs/hexo)  
+
 平时我们偶尔看到一些有用的东西会做点笔记，但是每次写的东西都会到处放，不好找，所以才想着自己搭建一个人博客网站，所以就考虑搭建一下自己的博客，hexo是一款基于Node.js的静态博客框架,这篇教程是针对与Mac的，同时可以同步git上，不提供绑定域名的方法，只针对小型的记录笔记。
 ### 准备工作  
 1、安装Node  
@@ -261,5 +256,6 @@ hexo deploy      -->　　hexo d
 hexo 的主题有很多，[主题地址](https://hexo.io/themes)，可以在这里选择自己喜欢的主题，然后下载下来。  
 - 将解压文件夹放在 hexo 目录的 themes 文件夹下  
 - 在\_config.yml文件里面将theme字段修改为下载的主题文件夹的名字。  
+  
 这样重新启动一下就可以换成喜欢的主题了，我这边使用的主题是 [Maupassant](https://www.haomwei.com/technology/maupassant-hexo.html)，简单而且在移动端也适配相对不错(当然，我的好多md文件还没有迁移上去)，如果可以的话自己写一个主题也行！  
 ![](http://upload-images.jianshu.io/upload_images/7115680-fe168260a4fbea59.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
