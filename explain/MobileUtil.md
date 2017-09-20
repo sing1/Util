@@ -1,5 +1,5 @@
-#MobileUtil
-##API
+# MobileUtil
+## API
 
 ###### 获取IP（ipv4）地址
 ```JAVA
@@ -36,43 +36,43 @@ MobileUtil.switchMobileData(Context)
 ```JAVA
 MobileUtil.invokeMethod(Context,String,Object[])throws Exception
 ```
-######  开启、关闭移动数据
+###### 开启、关闭移动数据
 ```JAVA
 MobileUtil.invokeBooleanArgMethod(Context,boolean)throws Exception
 ```
-######  判断手机是否飞行模式
+###### 判断手机是否飞行模式
 ```JAVA
 MobileUtil.getAirplaneMode(Context)
 ```
-######  设置手机飞行模式,rue:设置为飞行模式 false:取消飞行模式
+###### 设置手机飞行模式,rue:设置为飞行模式 false:取消飞行模式
 ```JAVA
 MobileUtil.setAirplaneModeOn(Context,boolean)
 ```
-######  设置亮度
+###### 设置亮度
 ```JAVA
 MobileUtil.setBrightness(Activity,int)
 ```
-######  获取当前亮度
+###### 获取当前亮度
 ```JAVA
 MobileUtil.getScreenBrightness(Activity)
 ```
-######  停止自动亮度调节
+###### 停止自动亮度调节
 ```JAVA
 MobileUtil.stopAutoBrightness(Activity)
 ```
-######  开启亮度自动调节
+###### 开启亮度自动调节
 ```JAVA
 MobileUtil.startAutoBrightness(Activity)
 ```
-######  判断是否开启了自动亮度调节
+###### 判断是否开启了自动亮度调节
 ```JAVA
 MobileUtil.isAutoBrightness(ContentResolver)
 ```
-######  获取手机唯一值，不受重装、卸载等影响
+###### 获取手机唯一值，不受重装、卸载等影响
 ```JAVA
 MobileUtil.getMyUUID(Activity)
 ```
-######  Gps是否打开
+###### Gps是否打开
 ```JAVA
 // <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 MobileUtil.isGpsEnabled(Context)

@@ -1,6 +1,6 @@
-#KeyboardUtil
+# KeyboardUtil
  
-##API
+## API
 ###### 控制键盘1，true为隐藏，false为显示
 ```JAVA
 KeyboardUtil.hideInputMethod(Activity,boolean)

@@ -1,10 +1,10 @@
-#MoneyUtils
-##API
-######人民币转换为大写,格式为：x万x千x百x十x元x角x分
+# MoneyUtils
+## API
+###### 人民币转换为大写,格式为：x万x千x百x十x元x角x分
 ```JAVA
 MoneyUtils.number2CNMontray(String) //传入的金额
 ```
-######人民币转换为大写,格式为：x万x千x百x十x元x角x分
+###### 人民币转换为大写,格式为：x万x千x百x十x元x角x分
 ```JAVA
 MoneyUtils.number2CNMontray(BigDecimal)  //传入的金额
 ```
@@ -12,7 +12,7 @@ MoneyUtils.number2CNMontray(BigDecimal)  //传入的金额
 ```JAVA
 MoneyUtils.accountantMoney(BigDecimal) //待转换的金额
 ```
-######格式化金额，显示为xxx万元，xxx百万,xxx亿
+###### 格式化金额，显示为xxx万元，xxx百万,xxx亿
 ```JAVA
 MoneyUtils.getFormatMoney(BigDecimal,int,double)
 ```
@@ -24,7 +24,7 @@ MoneyUtils.getAccountantMoney(BigDecimal,int,double)
 ```JAVA
 MoneyUtils.accountantMoney(BigDecimal,int,double)
 ```
-######格式化金额，显示为xxx万元，xxx百万,xxx亿
+###### 格式化金额，显示为xxx万元，xxx百万,xxx亿
 ```JAVA
 MoneyUtils.formatMoney(BigDecimal,int,double)
 ```

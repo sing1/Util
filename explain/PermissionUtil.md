@@ -1,8 +1,8 @@
-#PermissionUtil
+# PermissionUtil
 
  ![](.././app/src/main/res/mipmap-xhdpi/ic_permission_structure.png "") 
  
-##API 
+## API 
 ###### 检查单个权限是否被允许
 ```JAVA
 PermissionUtil.getInstance().checkSinglePermission(String permission)

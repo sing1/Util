@@ -1,11 +1,11 @@
-#RoundImageView
+# RoundImageView
  
 ![](.././app/src/main/res/mipmap-xhdpi/ic_round_image_view.gif "")   
 支持圆图片、圆角图片、不规则图片(4个角弧度不一样的)、支持点击效果
-####感谢：
+#### 感谢：
 https://github.com/lzan13/MLImageViewDemo  
 https://github.com/LineChen/RoundImageView
-##属性介绍
+## 属性介绍
 >- shape_type　　　　　　　　circle(圆图片)、rect(圆角图片)、irregular(不规则图片)
 >- press_alpha　　　　　　　 按下的透明度，按下效果用透明度实现
 >- press_color　　　　　　　 按下颜色
@@ -17,8 +17,9 @@ https://github.com/LineChen/RoundImageView
 >- rightTopRadius　　　　　　右上角弧度(shape_type=irregular时有效)
 >- rightBottomRadius　　　　右下角弧度(shape_type=irregular时有效)
         
-##效果图XML
-```xml
+## 效果图XML
+
+```XML
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:melove="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"

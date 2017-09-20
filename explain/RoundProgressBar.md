@@ -1,8 +1,9 @@
-#RoundProgressBar
+# RoundProgressBar
 
 ![](.././app/src/main/res/mipmap-xhdpi/ic_round_progress_bar.gif "")
 
-##RoundProgressBar的自定义属性介绍
+## RoundProgressBar的自定义属性介绍
+
 ```XML
 android_custom:backgroundColor="#123123"      // 中间部分的背景颜色
 android_custom:roundColor="#C6E2FF"           // 圆环的颜色
@@ -13,7 +14,8 @@ android_custom:textColor="#000000"            // 中间进度百分比的字符�
 android_custom:textSize="18sp"                // 中间进度百分比的字符串的字体 
 android_custom:style="FILL"                   // 进度的风格，实心(FILL)或者空心(STROKE)
 ```
-##RoundProgressBar的核心代码
+## RoundProgressBar的核心代码
+
 ```JAVA
 @Override
 protected void onDraw(Canvas canvas) {
@@ -65,9 +67,10 @@ protected void onDraw(Canvas canvas) {
     }
 }
 ```
-##DEMO
+## DEMO
 效果图的样式
-```xml
+ 
+```XML
  <sing.widget.RoundProgressBar
     android:id="@+id/roundProgressBar01"
     android:layout_width="80dp"
@@ -103,6 +106,7 @@ protected void onDraw(Canvas canvas) {
     android_custom:roundWidth="1dp"
     android_custom:style="FILL" />
 ```
+
 ```JAVA
 private int mTotalProgress = 100;
 private int mCurrentProgress = 0;

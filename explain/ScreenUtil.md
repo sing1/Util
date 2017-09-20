@@ -1,6 +1,6 @@
-#ScreenUtil
+# ScreenUtil
 
-##API 
+## API 
 ###### 获取屏幕宽度
 ```JAVA
 ScreenUtil.getScreenWidth(Context)
@@ -13,7 +13,7 @@ ScreenUtil.getScreenHeight(Context)
 ```JAVA
 ScreenUtil.getScreen(Activity)
 ```
-######获取状态栏高度
+###### 获取状态栏高度
 ```JAVA
 ScreenUtil.getStatusHeight(Context)
 ```
