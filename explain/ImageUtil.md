@@ -70,3 +70,11 @@ ImageUtil.rotaingImageView(int，Bitmap) // int为图片目前的角度，Bitmap
 ```JAVA
 ImageUtil.getRightAngleImage(String,int size,String dirPath) // 图片路径，缩略图压缩大小，新生成的图片储存目录
 ```
+###### 将 Uri 转化为 path
+```JAVA
+ImageUtil.uriToPath(Uri uri,Activity context)
+```
+###### 根据Uri生成Bitmap
+```JAVA
+ImageUtil.getBitmap(Uri uri,Activity context)
+```

@@ -119,6 +119,20 @@ public class ImageUtil {
     }
 
     /**
+     * 读取本地图片资源
+     */
+    public static BitmapDrawable getBitmapDrawable(String imagePath, Context context) {
+        Bitmap bmp = null;
+        try {
+            bmp = BitmapFactory.decodeStream(context.getAssets().open(imagePath));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BitmapDrawable bitmapdraw = new BitmapDrawable(bmp);
+        return bitmapdraw;
+    }
+
+    /**
      * 获取相应目录中所有图片
      */
     public static ArrayList<Bitmap> getAllimagefromdir(String dir) {
@@ -199,20 +213,6 @@ public class ImageUtil {
         matrix.postScale(scaleWidth, scaleHeight);
         Bitmap bitmap = Bitmap.createBitmap(bgimage, 0, 0, width, height, matrix, true);
         return bitmap;
-    }
-
-    /**
-     * 读取本地图片资源
-     */
-    public static BitmapDrawable getBitmapDrawable(String imagePath, Context context) {
-        Bitmap bmp = null;
-        try {
-            bmp = BitmapFactory.decodeStream(context.getAssets().open(imagePath));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        BitmapDrawable bitmapdraw = new BitmapDrawable(bmp);
-        return bitmapdraw;
     }
 
     /**
@@ -448,7 +448,7 @@ public class ImageUtil {
         // 新建一个字符串数组用于存储图片地址数据。
         String[] proj = { MediaStore.Images.Media.DATA };
         // android系统提供的接口，用于根据uri获取数据
-//        Cursor cursor = context.managedQuery(uri, proj, null, null, null);
+        // Cursor cursor = context.managedQuery(uri, proj, null, null, null);
         Cursor cursor = context.getContentResolver().query(uri, proj, null, null, null);
         // 获得用户选择图片的索引值
         int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
