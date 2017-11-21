@@ -1,7 +1,9 @@
 package sing.util;
 
 import android.app.Activity;
+import android.content.ContentResolver;
 import android.content.Context;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -16,6 +18,9 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.media.ThumbnailUtils;
+import android.net.Uri;
+import android.provider.MediaStore;
+import android.util.Log;
 import android.widget.ScrollView;
 
 import java.io.BufferedOutputStream;
@@ -282,8 +287,8 @@ public class ImageUtil {
         //设置图片数据
         newBmp.setPixels(pixels, 0, width, 0, 0, width, height);
 
-        Bitmap resizeBmp = ThumbnailUtils.extractThumbnail(newBmp, w, h);
-        return resizeBmp;
+        Bitmap bitmap = ThumbnailUtils.extractThumbnail(newBmp, w, h);
+        return bitmap;
     }
 
     /**
@@ -436,5 +441,35 @@ public class ImageUtil {
             e.printStackTrace();
         }
         return imagePath;
+    }
+
+    //将 Uri 转化为 path
+    public static String uriToPath(Uri uri,Activity context) {
+        // 新建一个字符串数组用于存储图片地址数据。
+        String[] proj = { MediaStore.Images.Media.DATA };
+        // android系统提供的接口，用于根据uri获取数据
+//        Cursor cursor = context.managedQuery(uri, proj, null, null, null);
+        Cursor cursor = context.getContentResolver().query(uri, proj, null, null, null);
+        // 获得用户选择图片的索引值
+        int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+        // 将游标移至开头 ，防止引起队列越界
+        cursor.moveToFirst();
+        // 根据索引值获取图片路径
+        String path = cursor.getString(column_index);
+        return path;
+    }
+
+    // 根据Uri生成Bitmap
+    public static Bitmap getBitmap(Uri uri,Activity context) {
+        Bitmap bm = null;
+        // 外界的程序访问ContentProvider所提供数据 可以通过ContentResolver接口
+        ContentResolver resolver = context.getContentResolver();
+        try {
+            //根据图片的URi生成bitmap
+            bm = MediaStore.Images.Media.getBitmap(resolver, uri);
+        } catch (IOException e) {
+            Log.e("getImg", e.toString());
+        }
+        return bm;
     }
 }
